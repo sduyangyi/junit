@@ -1,8 +1,10 @@
 package junit.samples;
 
-import junit.framework.*;
-
 import java.util.Vector;
+
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
  
 
 /**
@@ -27,12 +29,6 @@ public class VectorTest extends TestCase {
 	}
 	public static Test suite() {
 		return new TestSuite(VectorTest.class);
-	}
-	public void testCapacity() {
-		int size= fFull.size(); 
-		for (int i= 0; i < 100; i++)
-			fFull.addElement(new Integer(i));
-		assertTrue(fFull.size() == 100+size);
 	}
 	public void testClone() {
 		Vector clone= (Vector)fFull.clone(); 
@@ -63,5 +59,34 @@ public class VectorTest extends TestCase {
 	public void testRemoveElement() {
 		fFull.removeElement(new Integer(3));
 		assertTrue(!fFull.contains(new Integer(3)) ); 
+	}
+	public void testSizeIsThree()
+	{
+		assertTrue(fFull.size()==3);
+		Vector v= new Vector();
+		for(int i=0; i<3;i++){
+			v.addElement(new Object());
+			assertTrue(v.size()==fFull.size());
+		}
+		
+	}
+	public void testValues() {
+		
+		Integer [] expected= new Integer[3];
+		for (int e = 0; e < expected.length; e++) {
+			 expected[e]= new Integer(e + 1);
+
+		}
+		Integer[] actual= (Integer[]) fFull.toArray(new Integer[fFull.size()]);
+		assertEquals(expected.length, actual.length);
+		 for (int i= 0; i < actual.length; i++)
+		     assertEquals(expected[i], actual[i]);
+	}
+
+	public void testCapacity() {
+		int size= fFull.size(); 
+		for (int i= 0; i < 100; i++)
+			fFull.addElement(new Integer(i));
+		assertTrue(fFull.size() == 100+size);
 	}
 }
