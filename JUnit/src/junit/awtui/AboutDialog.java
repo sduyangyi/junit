@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 import junit.runner.Version;
-ggg
+
 class AboutDialog extends Dialog {
 	public AboutDialog(Frame parent) {
 		super(parent);
@@ -22,7 +22,7 @@ class AboutDialog extends Dialog {
 				}
 			}
 		);
-		
+		Label label5551= new Label("tttt");
 		Label label1= new Label("JUnit");
 		label1.setFont(new Font("dialog", Font.PLAIN, 36));
 		
