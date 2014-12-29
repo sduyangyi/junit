@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 import junit.runner.Version;
-
+ggg
 class AboutDialog extends Dialog {
 	public AboutDialog(Frame parent) {
 		super(parent);
